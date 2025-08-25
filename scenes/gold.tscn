@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt0pe8u7tanje"]
+
+[ext_resource type="Texture2D" uid="uid://cw0ykly6tp1ug" path="res://assets/gold/gold.png" id="1_ls0pt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yna14"]
+size = Vector2(16, 16)
+
+[node name="Gold" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_ls0pt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_yna14")
