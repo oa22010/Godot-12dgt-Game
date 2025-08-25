@@ -1,7 +1,7 @@
 extends Node2D
 
 var slash_prefab = preload("res://scenes/slash.tscn")
-var num_slashs = 8
+var num_slashs = 1
 
 func _on_timer_timeout() -> void:
 	shoot()
