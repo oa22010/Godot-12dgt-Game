@@ -1,7 +1,7 @@
 extends Node2D
 
 var slash_prefab = preload("res://scenes/slash.tscn")
-var num_slashs = 1
+var num_slashs = 8
 
 func _on_timer_timeout() -> void:
 	shoot()
@@ -15,5 +15,7 @@ func spawn_slash(direction : Vector2):
 
 func shoot():
 	var direction = Vector2.RIGHT
+	var step = 2 * PI / num_slashs
 	for bullet in range(num_slashs):
 		spawn_slash(direction)
+		direction = direction.rotated(step)
