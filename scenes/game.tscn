@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://p5edlxkrnbjx" path="res://assets/tilemap/Texture/TX Tileset Grass.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bh5e3fm1dgdkq" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://cn64j02oeiu51" path="res://scenes/enemy.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://deh8co25kaf03" path="res://scenes/enemy_spawner.tscn" id="3_lnu2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("1_uwrxv")
@@ -115,13 +115,10 @@ layer_0/tile_data = PackedInt32Array(65535, 0, 0, 7, 0, 0, 589823, 0, 0, 524295,
 layer_1/name = "Layer0"
 layer_1/tile_data = PackedInt32Array(65535, 786432, 0, 65538, 786432, 0, 262147, 786432, 0, 327683, 786432, 0, 458754, 786432, 0, 327695, 524288, 3, 327704, 524288, 3, -131054, 720896, 6, 26, 720896, 6, 393222, 983040, 7, 10, 983040, 7, 983054, 655360, 7, 1048583, 655360, 7, 851972, 655360, 7, 851984, 655360, 7, 1048601, 655360, 6, 720925, 655360, 6, 1048604, 655360, 7, 458781, 655360, 7, 1179646, 983040, 7, 655356, 983040, 7, 655369, 524288, 5, 327691, 524288, 5)
 
+[node name="Enemy_spawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_lnu2h")]
+target = NodePath("../Player")
+
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
-
-[node name="Enemy" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(125, 52)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_lnu2h")]
-position = Vector2(55, 101)
