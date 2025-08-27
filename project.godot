@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="12DGT game"
+config/name="12DGT - Inner Demons"
 run/main_scene="uid://xox037cyupv6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
