@@ -28,7 +28,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		score += 1
 		area.queue_free()
 		sword.num_slashs = score
-		sword.num_slashs = clamp(sword.num_slashs, 1, 24)
+		sword.num_slashs = clamp(sword.num_slashs, 1, 48)
 		label.text = "Score: " + str(score)
 	elif area is Enemy and health > 0:
 		if direction == Vector2.LEFT:
