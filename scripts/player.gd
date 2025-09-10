@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 250.0
 var score = 0
 var health = 3
 @onready var sword = $Sword

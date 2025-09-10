@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 80.0
+const SPEED = 50.0
 var player : Node2D
 var gold_prefab = preload("res://scenes/gold.tscn")
 @onready var animation = $AnimatedSprite2D
