@@ -4,7 +4,7 @@ const SPEED = 250.0
 var score = 0
 var health = 3
 @onready var sword = $Sword
-@onready var label = $"../Label"
+@onready var label = $Score
 @onready var animation = $AnimatedSprite2D
 
 func _physics_process(_delta: float) -> void:
