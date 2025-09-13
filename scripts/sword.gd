@@ -1,21 +1,6 @@
 extends Node2D
 
-var slash_prefab = preload("res://scenes/slash.tscn")
-var num_slashs = 1
+var num_slashs: int = 1
 
-func _on_timer_timeout() -> void:
-	shoot()
-
-func spawn_slash(direction : Vector2):
-	# Spawn slash
-	var slash = slash_prefab.instantiate()
-	slash.position = global_position
-	slash.direction = direction
-	get_tree().root.add_child(slash)
-
-func shoot():
-	var direction = Vector2.RIGHT
-	var step = 2 * PI / num_slashs
-	for bullet in range(num_slashs):
-		spawn_slash(direction)
-		direction = direction.rotated(step)
+func _process(_delta):
+	global_rotation = global_position.direction_to(get_global_mouse_position()).angle()
