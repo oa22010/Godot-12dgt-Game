@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://xox037cyupv6"]
+[gd_scene load_steps=14 format=4 uid="uid://xox037cyupv6"]
 
 [ext_resource type="Texture2D" uid="uid://p5edlxkrnbjx" path="res://assets/tilemap/TX Tileset Grass.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bh5e3fm1dgdkq" path="res://scenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://caadlwf7oj8di" path="res://assets/tilemap/Black.png" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://deh8co25kaf03" path="res://scenes/enemy_spawner.tscn" id="3_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bwfxxkmcl16ll" path="res://assets/tilemap/TX Tileset Wall.png" id="3_p57ef"]
+[ext_resource type="FontFile" uid="uid://c320o0yejs8ix" path="res://assets/fonts/cmunit.ttf" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("3_iywne")
@@ -1311,15 +1312,6 @@ position = Vector2(-40.012, 130.995)
 rotation = 1.56492
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
-[node name="Label" type="Label" parent="."]
-z_index = 1
-offset_left = 134.0
-offset_top = 14.0
-offset_right = 195.0
-offset_bottom = 37.0
-text = "Score: 0"
-metadata/_edit_use_anchors_ = true
-
 [node name="Enemy_spawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_lnu2h")]
 z_index = 1
 position = Vector2(164, 68)
@@ -1331,3 +1323,14 @@ position = Vector2(15, 74)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
+
+[node name="Score" type="Label" parent="Player"]
+z_index = 1
+offset_left = -145.0
+offset_top = -81.0
+offset_right = -77.0
+offset_bottom = -58.0
+theme_override_fonts/font = ExtResource("6_p57ef")
+theme_override_font_sizes/font_size = 0
+text = "Score: 0"
+metadata/_edit_use_anchors_ = true
