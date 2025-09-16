@@ -1334,3 +1334,14 @@ theme_override_fonts/font = ExtResource("6_p57ef")
 theme_override_font_sizes/font_size = 0
 text = "Score: 0"
 metadata/_edit_use_anchors_ = true
+
+[node name="Wave_num" type="Label" parent="Player"]
+z_index = 1
+offset_left = 76.0
+offset_top = -81.0
+offset_right = 144.0
+offset_bottom = -58.0
+theme_override_fonts/font = ExtResource("6_p57ef")
+theme_override_font_sizes/font_size = 0
+text = "Wave: 0"
+metadata/_edit_use_anchors_ = true
