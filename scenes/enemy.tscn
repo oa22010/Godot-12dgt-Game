@@ -300,14 +300,15 @@ animation = &"idle_front"
 autoplay = "idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -3)
+visible = false
+position = Vector2(-55, -32)
 shape = SubResource("RectangleShape2D_5uy6h")
 
 [node name="Hitbox" type="Area2D" parent="."]
 script = ExtResource("4_5uy6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-1, -3)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_md0e3")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
