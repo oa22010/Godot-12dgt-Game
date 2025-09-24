@@ -24,7 +24,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u5d8p")
 }, {
-"duration": 100.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ec8qs")
 }],
 "loop": true,
@@ -77,6 +77,10 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -93,23 +97,24 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect"]
-position = Vector2(551, 253)
+position = Vector2(575, 253)
 scale = Vector2(2.5833333, 2.6818185)
 sprite_frames = SubResource("SpriteFrames_87vk7")
 animation = &"heart_break"
 
-[node name="Button" type="Button" parent="ColorRect"]
-layout_mode = 0
-offset_left = 489.0
-offset_top = 513.0
-offset_right = 637.0
-offset_bottom = 597.0
-text = "Restart?"
+[node name="restart" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.018229166
+anchor_right = 0.06336805
+offset_left = 532.0
+offset_top = 536.0
+offset_right = 572.0
+offset_bottom = 559.0
+text = "Press R to restart"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ckwju")
 }
-
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]

@@ -1,8 +1,127 @@
-[gd_scene load_steps=4 format=3 uid="uid://deh8co25kaf03"]
+[gd_scene load_steps=21 format=3 uid="uid://deh8co25kaf03"]
 
 [ext_resource type="Script" uid="uid://cpvqghysbwniu" path="res://scripts/enemy_spawner.gd" id="1_ks1gq"]
 [ext_resource type="PackedScene" uid="uid://cn64j02oeiu51" path="res://scenes/enemy.tscn" id="2_devoi"]
-[ext_resource type="Texture2D" uid="uid://fmr8w2vb23j1" path="res://assets/enemy_spawner/enemy_spawner.png" id="3_xl0gr"]
+[ext_resource type="Texture2D" uid="uid://cgjvumb8gonqn" path="res://assets/enemy_spawner/enemy_spawning.png" id="3_ih16b"]
+[ext_resource type="Texture2D" uid="uid://d2kq8xk2p4ksx" path="res://assets/enemy_spawner/enemy_spawner_idle.png" id="4_31irv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txvhj"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(0, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sukom"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(44, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tovkt"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(88, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1hw7"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(132, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22nel"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(0, 44, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c01tg"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(44, 44, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md2sj"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(88, 44, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g07m"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(132, 44, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxy1y"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(0, 88, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x7gh"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(44, 88, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87vjv"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(88, 88, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5v0o"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(132, 88, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk6ib"]
+atlas = ExtResource("3_ih16b")
+region = Rect2(0, 132, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl0om"]
+atlas = ExtResource("4_31irv")
+region = Rect2(0, 0, 44, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44w4t"]
+atlas = ExtResource("4_31irv")
+region = Rect2(0, 44, 44, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5vy6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txvhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sukom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tovkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1hw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22nel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c01tg")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_md2sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g07m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxy1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x7gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87vjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5v0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk6ib")
+}],
+"loop": true,
+"name": &"enemy_spawning",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl0om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44w4t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Enemy_spawner" type="Node2D"]
 script = ExtResource("1_ks1gq")
@@ -11,8 +130,14 @@ enemy_prefab = ExtResource("2_devoi")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("3_xl0gr")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.8014183e-06, -4.172325e-07)
+scale = Vector2(1.8181818, 1.8181818)
+sprite_frames = SubResource("SpriteFrames_s5vy6")
+animation = &"enemy_spawning"
+autoplay = "idle"
+
+[node name="Pre_spawn" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Pre_spawn" to="." method="_on_pre_spawn_timeout"]

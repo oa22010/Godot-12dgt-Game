@@ -12,12 +12,11 @@ script = ExtResource("1_ycbs3")
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(23.5, 2.98023e-08)
+position = Vector2(24.5, 0)
 scale = Vector2(11, 2)
 texture = SubResource("CanvasTexture_ycbs3")
 
 [node name="Firebox" type="Node2D" parent="."]
-position = Vector2(25, 0)
 script = ExtResource("2_n355p")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

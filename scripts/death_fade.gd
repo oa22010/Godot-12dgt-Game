@@ -15,3 +15,10 @@ func transition_black():
 func transition_normal():
 	animation.play("fade_to_black")
 	color_rect.visible = false
+
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("restart"):
+		color_rect.visible = false
+		animation.play("fade_to_black")
+		animation.stop()
+		Engine.time_scale = 1.0

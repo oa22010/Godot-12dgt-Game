@@ -4,6 +4,7 @@ const SPEED = 50.0
 var player : Node2D
 var gold_prefab = preload("res://scenes/gold.tscn")
 @onready var animation = $AnimatedSprite2D
+signal died
 
 func _physics_process(_delta: float) -> void:
 	var direction = (player.global_position - global_position)
@@ -24,3 +25,4 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		gold.position = global_position
 		get_tree().root.call_deferred("add_child", gold)
 		queue_free()
+		emit_signal("died")
