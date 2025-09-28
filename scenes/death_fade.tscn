@@ -1,36 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bj33nhfdqwrs2"]
+[gd_scene load_steps=12 format=3 uid="uid://bj33nhfdqwrs2"]
 
 [ext_resource type="Script" uid="uid://cy276sf1ikffj" path="res://scripts/death_fade.gd" id="1_cnrsx"]
 [ext_resource type="Texture2D" uid="uid://c646pwpttnk6h" path="res://assets/heart/heart_anim.png" id="2_bc0al"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ckwju"]
-atlas = ExtResource("2_bc0al")
-region = Rect2(0, 0, 30, 22)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5d8p"]
-atlas = ExtResource("2_bc0al")
-region = Rect2(0, 22, 30, 22)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ec8qs"]
-atlas = ExtResource("2_bc0al")
-region = Rect2(0, 44, 30, 22)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_87vk7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ckwju")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u5d8p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ec8qs")
-}],
-"loop": true,
-"name": &"heart_break",
-"speed": 5.0
-}]
+[ext_resource type="AudioStream" uid="uid://phkklc0ba8md" path="res://assets/SFX/background_music.wav" id="3_u5d8p"]
+[ext_resource type="AudioStream" uid="uid://dyfelsgjunms1" path="res://assets/SFX/death_sound.wav" id="4_ec8qs"]
 
 [sub_resource type="Animation" id="Animation_cnrsx"]
 length = 0.001
@@ -69,14 +42,46 @@ _data = {
 &"fade_to_black": SubResource("Animation_0jfnm")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckwju"]
+atlas = ExtResource("2_bc0al")
+region = Rect2(0, 0, 30, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5d8p"]
+atlas = ExtResource("2_bc0al")
+region = Rect2(0, 22, 30, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec8qs"]
+atlas = ExtResource("2_bc0al")
+region = Rect2(0, 44, 30, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87vk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckwju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5d8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec8qs")
+}],
+"loop": true,
+"name": &"heart_break",
+"speed": 5.0
+}]
+
 [node name="Death_fade" type="CanvasLayer"]
 script = ExtResource("1_cnrsx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+z_index = -1
+anchors_preset = -1
+anchor_left = -0.625
+anchor_top = -0.625
+anchor_right = 1.6296296
+anchor_bottom = 1.6296296
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 1.0
@@ -86,35 +91,45 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = -2.0
-offset_right = 1152.0
-offset_bottom = 205.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ckwju")
+}
+
+[node name="Background_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_u5d8p")
+
+[node name="Death_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ec8qs")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1153.0
+offset_bottom = 206.0
 theme_override_font_sizes/font_size = 150
 text = "YOU DIED"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect"]
-position = Vector2(575, 253)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 254)
 scale = Vector2(2.5833333, 2.6818185)
 sprite_frames = SubResource("SpriteFrames_87vk7")
 animation = &"heart_break"
 
-[node name="restart" type="Label" parent="ColorRect"]
-layout_mode = 1
+[node name="Restart" type="Label" parent="."]
 anchors_preset = -1
 anchor_left = -0.018229166
 anchor_right = 0.06336805
-offset_left = 532.0
-offset_top = 536.0
-offset_right = 572.0
-offset_bottom = 559.0
+offset_left = 533.0
+offset_top = 537.0
+offset_right = 573.0
+offset_bottom = 560.0
 text = "Press R to restart"
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ckwju")
-}
+[node name="Timer" type="Timer" parent="."]
+ignore_time_scale = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

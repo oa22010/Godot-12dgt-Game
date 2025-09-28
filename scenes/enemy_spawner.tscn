@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://deh8co25kaf03"]
+[gd_scene load_steps=22 format=3 uid="uid://deh8co25kaf03"]
 
 [ext_resource type="Script" uid="uid://cpvqghysbwniu" path="res://scripts/enemy_spawner.gd" id="1_ks1gq"]
 [ext_resource type="PackedScene" uid="uid://cn64j02oeiu51" path="res://scenes/enemy.tscn" id="2_devoi"]
 [ext_resource type="Texture2D" uid="uid://cgjvumb8gonqn" path="res://assets/enemy_spawner/enemy_spawning.png" id="3_ih16b"]
 [ext_resource type="Texture2D" uid="uid://d2kq8xk2p4ksx" path="res://assets/enemy_spawner/enemy_spawner_idle.png" id="4_31irv"]
+[ext_resource type="AudioStream" uid="uid://cv8foj7pwtf0j" path="res://assets/SFX/enemy_spawn_sfx.wav" id="5_31irv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_txvhj"]
 atlas = ExtResource("3_ih16b")
@@ -138,6 +139,10 @@ animation = &"enemy_spawning"
 autoplay = "idle"
 
 [node name="Pre_spawn" type="Timer" parent="."]
+
+[node name="Spawn_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_31irv")
+volume_db = -17.964
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Pre_spawn" to="." method="_on_pre_spawn_timeout"]
