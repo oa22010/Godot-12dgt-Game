@@ -1,11 +1,13 @@
 extends Node2D
 
 @onready var ability_timer = $"../Timer"
+@onready var attack_sound = $"../Attack_sound"
 var slash_prefab = preload("res://scenes/slash.tscn")
 var can_use_ability = true
 
 func spawn_slash(direction : Vector2):
 	var slash = slash_prefab.instantiate()
+	attack_sound.play()
 	slash.position = global_position
 	slash.direction = direction
 	get_tree().root.add_child(slash)

@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
-const SPEED = 250.0
 @onready var timer = $Timer
 @onready var sword = $Sword
 @onready var label = $Score
 @onready var animation_sprite = $AnimatedSprite2D
 @onready var player = $"."
 @onready var death_fade = get_tree().get_root().get_node("DeathFade")
+@onready var background_music = $"../Sound/Background_music"
+const SPEED = 250.0
 var last_direction : Vector2 = Vector2.DOWN
 var score = 0
 
@@ -47,6 +48,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		label.text = "Score: " + str(score)
 	elif area is Enemy:
 		animation_sprite.play("death")
+		background_music.stop()
 		Engine.time_scale = 0.1
 		timer.start()
 		death_fade.transition_black()

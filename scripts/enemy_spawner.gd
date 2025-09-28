@@ -1,10 +1,11 @@
 extends Node2D
 
-@onready var my_timer = $Timer          # main spawn timer
-@onready var pre_spawn_timer = $Pre_spawn  # a second Timer node, set to 1s
+@onready var my_timer = $Timer
+@onready var pre_spawn_timer = $Pre_spawn
 @onready var label = $"../Player/Wave_num"
 @onready var enemy_label = $"../Player/Enemy_count"
 @onready var animation = $AnimatedSprite2D
+@onready var spawn_sound = $Spawn_sound
 @export var enemy_prefab : PackedScene
 @export var target : Node2D
 var wave_num = 0
@@ -40,11 +41,13 @@ func _on_timer_timeout() -> void:
 	enemy.player = target
 	enemy.died.connect(_on_enemy_died)
 	add_child(enemy)
+	if spawn_sound.is_playing():
+		pass
+	else:
+		spawn_sound.play()
 	enemy.z_index = -1
-
 	countdown += 1
 	enemy_count += 1
-
 	# Stop spawning once wave_size is reached
 	if countdown >= wave_size:
 		my_timer.stop()
