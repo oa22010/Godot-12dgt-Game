@@ -1286,36 +1286,36 @@ tile_set = SubResource("TileSet_gee14")
 
 [node name="World_boundaries" type="Node" parent="."]
 
-[node name="World_boundary" type="StaticBody2D" parent="World_boundaries"]
+[node name="Bottom_boundary" type="StaticBody2D" parent="World_boundaries"]
 position = Vector2(-17, -17)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World_boundaries/World_boundary"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World_boundaries/Bottom_boundary"]
 position = Vector2(93, 320)
 rotation = 0.00211041
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
-[node name="World_boundary2" type="StaticBody2D" parent="World_boundaries"]
+[node name="Left_boundary" type="StaticBody2D" parent="World_boundaries"]
 position = Vector2(0, 0.999969)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World_boundaries/World_boundary2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World_boundaries/Left_boundary"]
 position = Vector2(-200, 57)
 rotation = 1.56942
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
-[node name="World_boundary3" type="StaticBody2D" parent="World_boundaries"]
+[node name="Top_boundary" type="StaticBody2D" parent="World_boundaries"]
 position = Vector2(299, -157)
 rotation = 1.58718
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World_boundaries/World_boundary3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World_boundaries/Top_boundary"]
 position = Vector2(-40.0121, 130.98)
 rotation = 1.5549
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
-[node name="World_boundary4" type="StaticBody2D" parent="World_boundaries"]
+[node name="Right_boundary" type="StaticBody2D" parent="World_boundaries"]
 position = Vector2(524, 122)
 rotation = -3.14042
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World_boundaries/World_boundary4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World_boundaries/Right_boundary"]
 position = Vector2(-40.012, 130.995)
 rotation = 1.56492
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
