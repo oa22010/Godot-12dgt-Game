@@ -37,7 +37,7 @@ func _physics_process(_delta: float) -> void:
 		label.visible = false
 		restart.visible = false
 		animation.play("fade_to_black")
-		animation.stop()  # Resets anmation
+		animation.stop()         # Resets anmation
 		Engine.time_scale = 1.0  # Resume normal game speed
 		death_sound.stop()       # Stop death sound
 
