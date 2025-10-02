@@ -286,11 +286,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(23, 28)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
 size = Vector2(11, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(23, 28)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_md0e3")
@@ -300,13 +300,6 @@ sprite_frames = SubResource("SpriteFrames_md484")
 animation = &"idle_front"
 autoplay = "idle_front"
 
-[node name="Hitbox" type="Area2D" parent="."]
-script = ExtResource("4_5uy6h")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_md0e3")
-
 [node name="Death_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_c4w8v")
 volume_db = 11.345
@@ -314,5 +307,12 @@ volume_db = 11.345
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -4.5)
 shape = SubResource("RectangleShape2D_c4w8v")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("4_5uy6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_md0e3")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

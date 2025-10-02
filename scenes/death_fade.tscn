@@ -112,12 +112,6 @@ text = "YOU DIED"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(576, 254)
-scale = Vector2(2.5833333, 2.6818185)
-sprite_frames = SubResource("SpriteFrames_87vk7")
-animation = &"heart_break"
-
 [node name="Restart" type="Label" parent="."]
 anchors_preset = -1
 anchor_left = -0.018229166
@@ -128,6 +122,12 @@ offset_right = 573.0
 offset_bottom = 560.0
 text = "Press R to restart"
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 254)
+scale = Vector2(2.5833333, 2.6818185)
+sprite_frames = SubResource("SpriteFrames_87vk7")
+animation = &"heart_break"
 
 [node name="Timer" type="Timer" parent="."]
 ignore_time_scale = true

@@ -131,14 +131,14 @@ enemy_prefab = ExtResource("2_devoi")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Pre_spawn" type="Timer" parent="."]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.8014183e-06, -4.172325e-07)
 scale = Vector2(1.8181818, 1.8181818)
 sprite_frames = SubResource("SpriteFrames_s5vy6")
 animation = &"enemy_spawning"
 autoplay = "idle"
-
-[node name="Pre_spawn" type="Timer" parent="."]
 
 [node name="Spawn_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_31irv")
